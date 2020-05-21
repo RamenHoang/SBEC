@@ -5,9 +5,11 @@ peer.on('open', function(){
 });
 
 $('#btn-call-to-admin').on('click', function() {
-  console.log('click');
+  
   socket.emit('client-request-call-to-server');
-
+  $(this).fadeToggle();
+  $('#audio_client').fadeToggle();
+  $('#status-call-to-admin').fadeToggle();
 });
 
 socket.on('server-sent-accept-call-from-admin', function(adminId) {
@@ -16,20 +18,16 @@ socket.on('server-sent-accept-call-from-admin', function(adminId) {
   socket.emit('client-admin-calling-request');
 
   const getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia).bind(navigator);
-  
-  // window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-  // const recognition = new SpeechRecognition();
 
   getUserMedia({ video: false, audio: true }, function(stream) {
     const call = peer.call(adminId, stream);
 
-    // startSpeechToText(recognition);
-
     call.on('stream', function(remoteStream) {
       playStream('audio_client', remoteStream);
     })
-  })
+  });
+  $('#status-call-to-admin').text('Accepted. Start conversation now');
+  $('#btn-stop-call-to-admin').fadeToggle();
 });
 
 function playStream(audioId, stream) {

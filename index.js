@@ -7,8 +7,8 @@ var ProductModel = require('./models/productsModel');
 
 //Setup
 var app = express();
-var server = app.listen(process.env.PORT, function () {
-    console.log(`Listening on port ${process.env.PORT}`);
+var server = app.listen(1300, function () {
+    console.log(`Listening on port ${1300}`);
 });
 var io = socket(server);
 

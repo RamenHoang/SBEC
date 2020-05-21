@@ -69,6 +69,15 @@
 .sbec-background-product__ajusting-area{
     position: relative;
 }
+#audio_client{
+    display: none;
+}
+#btn-stop-call-to-admin{
+    display: none;
+}
+#status-call-to-admin{
+    display: none;
+}
 #y-range{
     width: 0%;
     position: absolute;

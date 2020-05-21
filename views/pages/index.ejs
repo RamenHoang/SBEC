@@ -111,6 +111,8 @@
                     <div class="sbec-start-and-stop-conversation">
                         <audio id="audio_client" controls autoplay></audio>
                         <br>
+                        <p id="status-call-to-admin">Waiting for consultant...</p>
+                        <button class="btn btn-danger" id="btn-stop-call-to-admin">Stop conversation</button>
                         <button class="btn btn-success" id="btn-call-to-admin">Start conversation</button>
                     </div>
                     <div class="sbec-background-product">
@@ -217,28 +219,6 @@
                                         1.500 $
                                     </p>
                                 </div>
-                                <div class="sbec-product-card sbec-product-card--border swiper-slide">
-                                    <div class=" sbec-product-card__image">
-                                        <img src="images/products/product.jpg" alt="product">
-                                    </div>
-                                    <p class="sbec-product-card__name">
-                                        Modern table
-                                    </p>
-                                    <p class="sbec-product-card__price">
-                                        1.500 $
-                                    </p>
-                                </div>
-                                <div class="sbec-product-card sbec-product-card--border swiper-slide">
-                                    <div class=" sbec-product-card__image">
-                                        <img src="images/products/product.jpg" alt="product">
-                                    </div>
-                                    <p class="sbec-product-card__name">
-                                        Modern table
-                                    </p>
-                                    <p class="sbec-product-card__price">
-                                        1.500 $
-                                    </p>
-                                </div>
                             </div>
                             <div class="swiper-pagination"></div>
                             <div class="swiper-button-next"></div>
@@ -250,28 +230,6 @@
         </div>
     </div>
     <script src="js/ws_recommended_product.js"></script>
-    <script>
-        socket.on('recommend-product', function (products) {
-            console.log(products);
-            let $swiperWrapper = $('.swiper-wrapper');
-            $swiperWrapper.html('');
-            for (let i = 0; i < products.length; i++) {
-                $swiperWrapper.append(`<div class="sbec-product-card sbec-product-card--border swiper-slide">
-                                            <div class=" sbec-product-card__image">
-                                                <img src="${products[i].imagePath}" alt="product">
-                                            </div>
-                                            <p class="sbec-product-card__name">
-                                                ${products[i].name}
-                                            </p>
-                                            <p class="sbec-product-card__price">
-                                                ${products[i].price} $
-                                            </p>
-                                        </div>` );
-            }
-            initSwiper();
-        });
-    </script>
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script>
         function initSwiper() {
             let swiper = new Swiper('.swiper-container', {
@@ -302,10 +260,30 @@
             });
         }
     </script>
+    <script>
+        socket.on('recommend-product', function (products) {
+            console.log(products);
+            let $swiperWrapper = $('.swiper-wrapper');
+            $swiperWrapper.html('');
+            for (let i = 0; i < products.length; i++) {
+                $swiperWrapper.append(`<div class="sbec-product-card sbec-product-card--border swiper-slide">
+                                            <div class=" sbec-product-card__image">
+                                                <img src="${products[i].imagePath}" alt="product">
+                                            </div>
+                                            <p class="sbec-product-card__name">
+                                                ${products[i].name}
+                                            </p>
+                                            <p class="sbec-product-card__price">
+                                                ${products[i].price} $
+                                            </p>
+                                        </div>` );
+            }
+            initSwiper();
+        });
+    </script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 
-    <script src="../js/peerjs_cl.js"></script>
     <script src="js/cl_start_call_to_admin.js"></script>
-    <script src="js/speech_to_text.js"></script>
 </body>
 
 </html>
