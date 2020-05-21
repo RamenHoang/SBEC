@@ -1,0 +1,21 @@
+.sbec-logo{
+    text-align: center;
+    font-weight: 800;
+}
+.sbec-logo__addition{
+    font-size: 0.7em;
+}
+.sbec-logo--lg{
+    font-size: 6em;
+}
+.sbec-logo--md{
+    font-size: 2em;
+}
+.sbec-logo--background{
+    color: white; 
+    background: url(../images/backgrounds/digital.jpg) no-repeat;
+    background-position: center;
+    background-size: contain;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
