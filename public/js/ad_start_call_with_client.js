@@ -1,4 +1,5 @@
 $('#btn-accept-call').on('click', function () {
+
   const peer = new Peer({
     key: 'peerjs',
     host: 'peerjs-server-trungquandev.herokuapp.com',

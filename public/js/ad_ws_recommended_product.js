@@ -1,4 +1,6 @@
+
 var socket = io.connect('https://sbec-server.herokuapp.com');
+
 socket.emit('recommend-product');
 
 socket.on('recommend-product', function (products) {

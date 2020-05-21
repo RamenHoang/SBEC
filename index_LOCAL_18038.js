@@ -108,7 +108,6 @@ function filterKeyWord(data) {
 
 }
 
-
 app.get('/admin', (req, res) => {
     res.render('pages/admin_product');
 });
@@ -132,7 +131,6 @@ app.get('/product/all', async (req, res) => {
 
     res.send(products);
 });
-
 
 async function catchKeyRequirement(text) {
     // Instantiates a client
