@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.15",
     "socket.io": "^2.3.0",
-    "ws": "^7.3.0",
+    "ws": "^7.4.6",
     "@google-cloud/language": "^4.0.0"
   },
   "devDependencies": {
